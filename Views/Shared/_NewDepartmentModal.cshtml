@@ -1,0 +1,27 @@
+@model Department
+<div class="modal fade" id="NewDepartmentModal" tabindex="-1" aria-labelledby="NewDepartmentModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="NewDepartmentModal">New Department</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Department" asp-action="New" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="DepartmentName" asp-for="DepartmentName" placeholder="Department Name">
+                        <label for="Fname">Department Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="Description" rows="3" asp-for="Description"
+                            placeholder="Address"></textarea>
+                        <label for="address">Description</label>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

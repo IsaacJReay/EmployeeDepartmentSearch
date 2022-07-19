@@ -1,0 +1,60 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Employee";
+}
+
+<table class="table table-light table-hover">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Gender</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Dept. ID</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Employee data in ViewData["EmployeeData"] as IList<Employee> ?? default!)
+        {
+            var parms = new Dictionary<string, string>()
+            {
+                { "Id", @data.Id.ToString() },
+                { "Fname",@data.Fname },
+                { "Lname", @data.Lname },
+                { "Gender", @data.Gender },
+                { "Email", @data.Email ?? default! },
+                { "Address", @data.address ?? default! },
+                { "DepartmentId", @data.DepartmentId.ToString() ?? "" }
+            };
+            <tr>
+                <td>@data.Id</td>
+                <td>@data.Fname</td>
+                <td>@data.Lname</td>
+                <td>@data.Gender</td>
+                <td>@data.Email</td>
+                <td>@data.address</td>
+                <td>@data.DepartmentId</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                            Action
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Employee" asp-all-route-data="parms"
+                                asp-action="EditForm" method="post">Edit</a>
+                            </li>
+                            <li><a class="dropdown-item" asp-route-id="@data.Id" asp-area="" asp-controller="Employee"
+                                asp-action="Delete">Delete</a>
+                            </li>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>

@@ -1,0 +1,45 @@
+@model EmployeeDto
+@{
+    ViewData["Title"] = "Edit Employee";
+    var ViewDataObj = ViewData["EmployeeData"] ?? default!;
+    EmployeeDto currentEmployee = (EmployeeDto) ViewDataObj ?? default!;
+}
+
+<form asp-controller="Employee" asp-action="Edit" method="post">
+    <div class="form-floating mb-3">
+        <input class="form-control" asp-for="Id" type="text" value="@currentEmployee.Id" aria-label="readonly input example" readonly>
+        <label for="Id">Id</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Fname" asp-for="Fname" placeholder="First Name" value=@currentEmployee.Fname>
+        <label for="Fname">First Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Lname" asp-for="Lname" placeholder="Last Name" value=@currentEmployee.Lname>
+        <label for="Lname">Last Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        <select class="form-select" aria-label="Gender" id="Gender" asp-for="Gender" placeholder="Gender">
+            <option selected>@currentEmployee.Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Undefined">Undefined</option>
+        </select>
+        <label for="Gender">Gender</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="Email" asp-for="Email" placeholder="Email" value=@currentEmployee.Email>
+        <label for="Email">Email</label>
+    </div>
+    <div class="form-floating mb-3">
+        <textarea class="form-control" id="address" rows="3" asp-for="address" placeholder="Address" value=@currentEmployee.address></textarea>
+        <label for="address">Address</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="DepartmentID" placeholder="Department ID" asp-for="DepartmentId" value=@currentEmployee.DepartmentId>
+        <label for="DepartmentID">Department ID</label>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="submit">Apply</button>
+    </div>
+</form>

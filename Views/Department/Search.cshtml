@@ -1,0 +1,20 @@
+@model SearchDto
+@{
+    ViewData["Title"] = "Search Department";
+}
+
+<form asp-controller="Department" asp-action="Search" method="post">
+    <div class="input-group mb-3">
+        <select class="form-select border border-secondary" aria-label="Search By" asp-for="filter">
+            <option value="all" selected>Search by All</option>
+            <option value="Id">Search By Id</option>
+            <option value="DepartmentName">Search By Department Name</option>
+            <option value="Description">Search By Description</option>
+        </select>
+        <input type="text" asp-for="searchPhrase" class="form-control border border-secondary" aria-label="Text input with dropdown button">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end ms-2 ">
+            <button class="btn btn-light border border-secondary" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+<partial name="Index"/>

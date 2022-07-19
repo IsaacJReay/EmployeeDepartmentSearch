@@ -1,0 +1,24 @@
+@model DepartmentDto
+@{
+    ViewData["Title"] = "Edit Department";
+    var ViewDataObj = ViewData["DepartmentData"] ?? default!;
+    DepartmentDto currentDepartment = (DepartmentDto) ViewDataObj ?? default!;
+}
+
+<form asp-controller="Department" asp-action="Edit" method="post">
+    <div class="form-floating mb-3">
+        <input class="form-control" asp-for="Id" type="text" value="@currentDepartment.Id" aria-label="readonly input example" readonly>
+        <label for="Id">Id</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="DepartmentName" asp-for="DepartmentName" placeholder="Department Name" value=@currentDepartment.DepartmentName>
+        <label for="DepartmentName">Department Name</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="Description" asp-for="Description" placeholder="Last Name" value=@currentDepartment.Description>
+        <label for="Description">Description</label>
+    </div>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <button class="btn btn-primary" type="submit">Apply</button>
+    </div>
+</form>
