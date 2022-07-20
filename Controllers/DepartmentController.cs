@@ -46,7 +46,7 @@ public class DepartmentController : Controller
         _context.Departments.Remove(Department);
         _context.SaveChanges();
 
-        return Redirect("/Employee/Index");
+        return Redirect("/Department/Index");
     }
 
     public IActionResult EditForm(DepartmentDto dto)

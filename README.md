@@ -8,7 +8,6 @@ docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Chheangmai@443" -p 1433:1433 -d mc
 
 ## Setup Code Dependencies
 ```bash
-dotnet add package EntityFramework
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer

@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
 using EmployeeDepartmentSearch.Data;
 
 var builder = WebApplication.CreateBuilder(args);
