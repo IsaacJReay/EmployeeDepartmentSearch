@@ -3,7 +3,7 @@ ASP.net MVC DbContext Relational MsSql Server Client no JS
 
 ## Setup Database
 ```bash
-docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Chheangmai@443" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2022-latest
+docker run -e "ACCEPT_EULA=Y" -e "SA_PASSWORD=Chheangmai@443" -p 1433:1433 -d --restart=always --name mssql mcr.microsoft.com/mssql/server:2022-latest
 ```
 
 ## Setup Code Dependencies
